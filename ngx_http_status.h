@@ -16,6 +16,7 @@ struct ngx_http_status_rbnode_s {
     ngx_atomic_t                 bytes_out;
     ngx_atomic_t                 conn_total;
     ngx_atomic_t                 req_total;
+    ngx_atomic_t                 http_1xx;
     ngx_atomic_t                 http_2xx;
     ngx_atomic_t                 http_3xx;
     ngx_atomic_t                 http_4xx;
@@ -62,6 +63,9 @@ typedef struct {
 
 #define NGX_HTTP_STATUS_REQ_TOTAL                                      \
     offsetof(ngx_http_status_rbnode_t, req_total)
+
+#define NGX_HTTP_STATUS_1XX                                            \
+    offsetof(ngx_http_status_rbnode_t, http_1xx)
 
 #define NGX_HTTP_STATUS_2XX                                            \
     offsetof(ngx_http_status_rbnode_t, http_2xx)
