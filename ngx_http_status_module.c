@@ -5,11 +5,12 @@ typedef struct {
     ngx_flag_t                   bypass;
 } ngx_http_status_store_t;
 
-off_t  ngx_http_status_fields[13] = {
+off_t  ngx_http_status_fields[14] = {
     NGX_HTTP_STATUS_BYTES_IN,
     NGX_HTTP_STATUS_BYTES_OUT,
     NGX_HTTP_STATUS_CONN_TOTAL,
     NGX_HTTP_STATUS_REQ_TOTAL,
+    NGX_HTTP_STATUS_1XX,
     NGX_HTTP_STATUS_2XX,
     NGX_HTTP_STATUS_3XX,
     NGX_HTTP_STATUS_4XX,
@@ -428,7 +429,10 @@ ngx_http_status_log_handler(ngx_http_request_t *r)
             status = 0;
         }
 
-        if (status >= 200 && status < 300) {
+        if (status >= 100 && status < 200) {
+            ngx_http_status_count(fnode, NGX_HTTP_STATUS_1XX, 1);
+
+        } else if (status >= 200 && status < 300) {
             ngx_http_status_count(fnode, NGX_HTTP_STATUS_2XX, 1);
 
         } else if (status >= 300 && status < 400) {
