@@ -97,6 +97,7 @@ is rendered.
   * **bytesouttotal** - total number of bytes sent to client
   * **conn\_total** - total number of accepted connections
   * **req\_total** - total number of processed requests
+  * **1xx** - total number of 1xx requests
   * **2xx** - total number of 2xx requests
   * **3xx** - total number of 3xx requests
   * **4xx** - total number of 4xx requests
