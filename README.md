@@ -161,6 +161,6 @@ http {
 
 When you call '/all-stats', you will get results like this:
 ```
-localhost,127.0.0.1:80,162,6242,1,1,1,0,0,0,0,10,1,10,1
-_CUSTOM,unnamed_server,6242,1,1,1,0,0,0,0,10,1,10,1
+localhost,127.0.0.1:80,162,6242,1,1,0,1,0,0,0,0,10,1,10,1
+_CUSTOM,unnamed_server,6242,1,1,0,1,0,0,0,0,10,1,10,1
 ```
